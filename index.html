@@ -9,24 +9,35 @@
 body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
-    background: #0a0a0a;
+    background: #050505;
     color: white;
 }
 
 header {
-    background: url('https://i.imgur.com/8QZ7Z8B.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('TU_IMAGEN_AQUI');
     height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
 }
 
 header h1 {
     font-size: 50px;
     color: #00ffcc;
     text-shadow: 0 0 20px #00ffcc;
+}
+
+.login-box {
+    margin-top: 15px;
+}
+
+.login-box input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
 }
 
 .container {
@@ -43,34 +54,23 @@ header h1 {
     text-align: center;
     transition: 0.3s;
     border: 2px solid #222;
+    cursor: pointer;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(0,255,200,0.4);
+    transform: scale(1.07);
+    box-shadow: 0 0 30px rgba(0,255,200,0.6);
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     margin-bottom: 10px;
-}
-
-h2 {
-    margin: 10px 0;
 }
 
 .price {
     font-size: 22px;
     color: #00ffcc;
-    margin: 10px 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    font-size: 14px;
-    opacity: 0.9;
 }
 
 button {
@@ -82,105 +82,86 @@ button {
     color: black;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 button:hover {
     background: #00c9a7;
 }
-
-footer {
-    text-align: center;
-    padding: 20px;
-    opacity: 0.6;
-}
 </style>
+
+<script>
+function comprar(rango) {
+    const user = document.getElementById('user').value;
+
+    if(user === "") {
+        alert("Pon tu usuario de Minecraft");
+        return;
+    }
+
+    alert("Comprando " + rango + " para " + user);
+}
+
+function abrirInfo(rango) {
+    window.open(rango + '.html', '_blank');
+}
+</script>
+
 </head>
 <body>
 
 <header>
     <h1>⚔️ TIENDA VALTHCRAFT ⚔️</h1>
+
+    <div class="login-box">
+        <input type="text" id="user" placeholder="Tu nombre de Minecraft">
+    </div>
 </header>
 
 <div class="container">
 
-<div class="card">
-<img class="logo" src="https://i.imgur.com/4AiXzf8.png">
+<div class="card" onclick="abrirInfo('vip')">
+<img class="logo" src="TU_LOGO_VIP">
 <h2>VIP</h2>
 <div class="price">$3.99</div>
-<ul>
-<li>✔ Acceso a /kit vip</li>
-<li>✔ Prefijo VIP</li>
-<li>✔ Beneficios básicos</li>
-</ul>
-<button>Comprar</button>
+<button onclick="event.stopPropagation(); comprar('VIP')">Comprar</button>
 </div>
 
-<div class="card">
-<img class="logo" src="https://i.imgur.com/4AiXzf8.png">
+<div class="card" onclick="abrirInfo('vipplus')">
+<img class="logo" src="TU_LOGO_VIPPLUS">
 <h2>VIP+</h2>
 <div class="price">$7.99</div>
-<ul>
-<li>✔ Todo lo anterior</li>
-<li>✔ Más dinero diario</li>
-<li>✔ Comandos extra</li>
-</ul>
-<button>Comprar</button>
+<button onclick="event.stopPropagation(); comprar('VIP+')">Comprar</button>
 </div>
 
-<div class="card">
-<img class="logo" src="https://i.imgur.com/4AiXzf8.png">
+<div class="card" onclick="abrirInfo('elite')">
+<img class="logo" src="TU_LOGO_ELITE">
 <h2>ELITE</h2>
 <div class="price">$10.99</div>
-<ul>
-<li>✔ Kits mejorados</li>
-<li>✔ Fly en zonas</li>
-<li>✔ Más ventajas</li>
-</ul>
-<button>Comprar</button>
+<button onclick="event.stopPropagation(); comprar('ELITE')">Comprar</button>
 </div>
 
-<div class="card">
-<img class="logo" src="https://i.imgur.com/4AiXzf8.png">
+<div class="card" onclick="abrirInfo('titan')">
+<img class="logo" src="TU_LOGO_TITAN">
 <h2>TITAN</h2>
 <div class="price">$25.99</div>
-<ul>
-<li>✔ Acceso total</li>
-<li>✔ /fly completo</li>
-<li>✔ Recompensas épicas</li>
-</ul>
-<button>Comprar</button>
+<button onclick="event.stopPropagation(); comprar('TITAN')">Comprar</button>
 </div>
 
-<div class="card">
-<img class="logo" src="https://i.imgur.com/4AiXzf8.png">
+<div class="card" onclick="abrirInfo('legend')">
+<img class="logo" src="TU_LOGO_LEGEND">
 <h2>LEGEND</h2>
 <div class="price">$50.99</div>
-<ul>
-<li>✔ Beneficios legendarios</li>
-<li>✔ Ítems únicos</li>
-<li>✔ Prioridad VIP</li>
-</ul>
-<button>Comprar</button>
+<button onclick="event.stopPropagation(); comprar('LEGEND')">Comprar</button>
 </div>
 
-<div class="card">
-<img class="logo" src="https://i.imgur.com/4AiXzf8.png">
+<div class="card" onclick="abrirInfo('supremo')">
+<img class="logo" src="TU_LOGO_SUPREMO">
 <h2>SUPREMO</h2>
 <div class="price">$99.99</div>
-<ul>
-<li>✔ TODO desbloqueado</li>
-<li>✔ Beneficios máximos</li>
-<li>✔ Exclusividad total</li>
-</ul>
-<button>Comprar</button>
+<button onclick="event.stopPropagation(); comprar('SUPREMO')">Comprar</button>
 </div>
 
 </div>
-
-<footer>
-© 2026 ValthCraft - Todos los derechos reservados
-</footer>
 
 </body>
 </html>
